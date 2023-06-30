@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Branch from './features/ui/atoms/Branch';
 import SideBar from './features/ui/organisms/SideBar';
+import VoiceActivityDetector from './features/record/components/molecules/VoiceActivityDetector';
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -31,6 +32,7 @@ function App() {
         >
           Start
         </button>
+        <VoiceActivityDetector />
       </div>
     </div>
   );
