@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import React from "react";
-import App from "./App";
+import React from 'react';
+import App from './App';
 import './tailwind.css';
 
 const rootContainer = document.getElementById('root');
@@ -11,5 +11,5 @@ const root = createRoot(rootContainer);
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
