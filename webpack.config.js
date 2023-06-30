@@ -23,7 +23,15 @@ module.exports = (env, argv) => {
     },
     module: {
       rules: [
-        { test: /\.tsx?$/, exclude: /node_modules/, use: ['babel-loader', 'ts-loader'] },
+        {
+          test: /\.tsx?$/,
+          exclude: /node_modules/,
+          use: ['babel-loader', 'ts-loader']
+        },
+        {
+          test: /\.css$/,
+          use: [ 'style-loader', 'css-loader', 'postcss-loader' ]
+        }
       ]
     },
     devServer: {
