@@ -5,12 +5,16 @@ import VoiceActivityDetector from './features/record/components/molecules/VoiceA
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isShowVAD, setIsShowVAD] = useState(false);
+
+  const displayVAD = () => {
+    setIsShowVAD(true);
+  };
 
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener('resize', handleWindowResize);
 
     return () => {
@@ -28,11 +32,15 @@ function App() {
         <h1 className='text-3xl font-light'>Start VAD</h1>
         <button
           type='submit'
+          onClick={displayVAD}
           className='py-2 px-4 font-semibold rounded-lg shadow-md text-white bg-green-500 hover:bg-green-700'
         >
           Start
         </button>
-        <VoiceActivityDetector />
+        <Branch condition={isShowVAD}>
+          <VoiceActivityDetector />
+          <p> </p>
+        </Branch>
       </div>
     </div>
   );

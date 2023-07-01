@@ -1478,7 +1478,7 @@
     "@ricky0123/vad-web" "*"
     onnxruntime-web "^1.14.0"
 
-"@ricky0123/vad-web@*":
+"@ricky0123/vad-web@*", "@ricky0123/vad-web@^0.0.12":
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/@ricky0123/vad-web/-/vad-web-0.0.12.tgz#99d1a2f3078c673cfcbd5e777d54fce8adbd4405"
   integrity sha512-bIxrrk6DsBjpjlq/eC+teVG6wQBP2qBrHazMu/FMhYNYqU+Qgx0xQrwYFIxWHKhkXrobB/DxOi3jvjZ23bD13g==

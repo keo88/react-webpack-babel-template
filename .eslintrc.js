@@ -27,6 +27,8 @@ module.exports = {
       2,
       { namedComponents: ['arrow-function', 'function-declaration'] },
     ],
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'jsx-a11y/media-has-caption': 'off',
   },
   root: true,
 };

@@ -8,8 +8,4 @@ if (!rootContainer) throw new Error('div element with id root is not found.');
 
 const root = createRoot(rootContainer);
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+root.render(<App />);
