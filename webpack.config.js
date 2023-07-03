@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { HotModuleReplacementPlugin, ProvidePlugin } = require('webpack');
+const { ProvidePlugin } = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
@@ -9,7 +9,7 @@ const appDirectory = fs.realpathSync(process.cwd());
 // const appDirectory = __dirname;
 const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
-module.exports = (env, argv) => {
+module.exports = () => {
   return {
     entry: resolveApp('src/index.tsx'),
     output: {
@@ -17,9 +17,13 @@ module.exports = (env, argv) => {
       filename: 'bundle.js',
     },
     mode: 'development',
-    devtool: 'eval',
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', 'json'],
+      modules: ['src', 'node_modules'],
+      // alias: {
+      //   Images: resolveApp('./src/assets/images'),
+      // },
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      preferRelative: true,
     },
     module: {
       rules: [
@@ -31,6 +35,10 @@ module.exports = (env, argv) => {
         {
           test: /\.css$/,
           use: ['style-loader', 'css-loader', 'postcss-loader'],
+        },
+        {
+          test: /\.(png|jpg|jpeg|gif|svg)$/i,
+          type: 'asset/resource',
         },
       ],
     },
@@ -61,7 +69,6 @@ module.exports = (env, argv) => {
       new ProvidePlugin({
         React: 'react',
       }),
-      new HotModuleReplacementPlugin(),
       new CleanWebpackPlugin(),
     ],
   };
