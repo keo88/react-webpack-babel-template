@@ -17,11 +17,13 @@ module.exports = () => {
       filename: 'bundle.js',
     },
     mode: 'development',
+    // resolve: dependency graph 생성할 때 import 구문의 경로에 대한 설정들
     resolve: {
+      // modules 에 적힌 경로부터 시작해서 import 구문에 적혀있는 경로를 탐색한다.
       modules: ['src', 'node_modules'],
-      // alias: {
-      //   Images: resolveApp('./src/assets/images'),
-      // },
+      alias: {
+        Images: resolveApp('./src/assets/images'),
+      },
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       preferRelative: true,
     },
