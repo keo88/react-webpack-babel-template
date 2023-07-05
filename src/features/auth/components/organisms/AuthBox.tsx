@@ -3,11 +3,18 @@ import googleLogo from 'assets/images/google_logo.svg';
 import appleLogo from 'assets/images/apple_logo.svg';
 import AuthButton from 'features/auth/components/molecules/AuthButton';
 import { GOOGLE_AUTH_TEXT, APPLE_AUTH_TEXT } from 'constants/strings';
+import { useNavigate } from 'react-router';
 
 function AuthBox() {
-  const authenticateWithGoogle = () => {};
+  const navigate = useNavigate();
 
-  const authenticateWithApple = () => {};
+  const authenticateWithGoogle = () => {
+    navigate('/dashboard');
+  };
+
+  const authenticateWithApple = () => {
+    navigate('/dashboard');
+  };
 
   return (
     <div className='min-w-fit flex-col border bg-white px-6 py-8 shadow-md rounded-[4px] '>
